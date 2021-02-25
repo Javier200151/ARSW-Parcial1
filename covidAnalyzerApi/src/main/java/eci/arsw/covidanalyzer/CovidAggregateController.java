@@ -6,6 +6,7 @@ import eci.arsw.covidanalyzer.service.ICovidAggregateService;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CovidAggregateController {
+    @Autowired
     ICovidAggregateService covidAggregateService;
 
     //TODO: Implemente todos los metodos POST que hacen falta.
