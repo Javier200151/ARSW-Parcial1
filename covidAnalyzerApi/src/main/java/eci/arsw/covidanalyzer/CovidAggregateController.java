@@ -3,6 +3,7 @@ package eci.arsw.covidanalyzer;
 import eci.arsw.covidanalyzer.model.Result;
 import eci.arsw.covidanalyzer.model.ResultType;
 import eci.arsw.covidanalyzer.service.ICovidAggregateService;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.http.HttpStatus;
@@ -66,30 +67,42 @@ public class CovidAggregateController {
 
     @RequestMapping(value = "/covid/result/true-positive", method = RequestMethod.GET)
     public ResponseEntity getTruePositiveResult() {
-        //TODO
-        //covidAggregateService.getResult(ResultType.TRUE_POSITIVE);      
-        return ResponseEntity.ok("Hello World TruePositive");
+        try {
+            return new ResponseEntity<>(covidAggregateService.getResult(ResultType.TRUE_POSITIVE) ,HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceNotFoundException.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error al encontrar el elemento",HttpStatus.NOT_FOUND);
+        }   
     }
     
     @RequestMapping(value = "/covid/result/true-negative", method = RequestMethod.GET)
     public ResponseEntity getTrueNegativeResult() {
-        //TODO
-        //covidAggregateService.getResult(ResultType.TRUE_POSITIVE);      
-        return ResponseEntity.ok("Hello World TrueNegative");
+        try {
+            return new ResponseEntity<>(covidAggregateService.getResult(ResultType.TRUE_NEGATIVE) ,HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceNotFoundException.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error al encontrar el elemento",HttpStatus.NOT_FOUND);
+        }   
     }
     
     @RequestMapping(value = "/covid/result/false-positive", method = RequestMethod.GET)
     public ResponseEntity getFalsePositiveResult() {
-        //TODO
-        //covidAggregateService.getResult(ResultType.TRUE_POSITIVE);      
-        return ResponseEntity.ok("Hello World FalsePositive");
+        try {
+            return new ResponseEntity<>(covidAggregateService.getResult(ResultType.FALSE_POSITIVE) ,HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceNotFoundException.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error al encontrar el elemento",HttpStatus.NOT_FOUND);
+        }   
     }
     
     @RequestMapping(value = "/covid/result/false-negative", method = RequestMethod.GET)
     public ResponseEntity getFalseNegativeResult() {
-        //TODO
-        //covidAggregateService.getResult(ResultType.TRUE_POSITIVE);      
-        return ResponseEntity.ok("Hello World FalseNegative");
+        try {
+            return new ResponseEntity<>(covidAggregateService.getResult(ResultType.FALSE_NEGATIVE) ,HttpStatus.ACCEPTED);
+        } catch (Exception ex) {
+            Logger.getLogger(ResourceNotFoundException.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error al encontrar el elemento",HttpStatus.NOT_FOUND);
+        } 
     }
 
     //TODO: Implemente el método.
