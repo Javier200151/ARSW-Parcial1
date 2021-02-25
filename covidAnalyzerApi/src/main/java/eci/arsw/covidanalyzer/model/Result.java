@@ -1,4 +1,4 @@
-package eci.arsw.covidanalyzer;
+package eci.arsw.covidanalyzer.model;
 
 import java.util.UUID;
 
